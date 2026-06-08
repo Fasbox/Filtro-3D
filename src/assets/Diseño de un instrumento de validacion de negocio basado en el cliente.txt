@@ -1,0 +1,130 @@
+2. Problema o necesidad que busca resolver: Nuestro proyecto nace para mitigar una problemática
+compleja en salud pública y sostenibilidad, la deficiente calidad del agua en el punto de consumo de
+hogares urbanos, periurbanos y rurales, donde la presencia de metales pesados y el evidente deterioro
+en las redes de transporte, comprometen la salud y la calidad de vida de las personas. Nuestro
+producto garantiza el acceso a agua limpia y segura directamente desde el grifo mediante un proceso
+de biorremediación activa, que a diferencia de los filtros comunes, asegura la eliminación real de
+metales pesados y contaminantes orgánicos que afectan la salud a largo plazo. Con esto, buscamos
+mejorar la calidad de vida del consumidor al reducir drásticamente su dependencia y gasto en agua
+embotellada, eliminando la carga económica del hogar y disminuyendo la huella ambiental por
+plásticos de un solo uso.
+3. Cliente o segmento objetivo: EcoBiofilter se centra principalmente en hogares ubicados en zonas
+urbanas, periurbanas y rurales, que comparten la necesidad crítica de mejorar la calidad del agua para
+su consumo. En el ámbito urbano y periurbano, nos dirigimos a familias que, pese a contar con
+servicios de acueducto, desconfían de la presencia de metales y sedimentos en sus redes domésticas y
+buscan reducir el gasto recurrente en agua embotellada. En el sector rural, el enfoque se desplaza
+hacia comunidades que dependen de fuentes de agua superficiales o pozos sin tratamiento previo,
+donde nuestra tecnología de biorremediación con microorganismos ofrece una solución de bajo costo
+y fácil mantenimiento para eliminar patógenos y contaminantes orgánicos.
+Propuesta de valor principal: Nuestro producto ofrece un sistema de purificación de agua doméstico
+y modular que utiliza una capa biológica compuesta por microorganismos especializados (como
+Bacillus subtilis, Pseudomonas putida y Saccharomyces cerevisiae) inmovilizados en un soporte
+poroso. A diferencia de los filtros convencionales que solo retienen partículas, nuestra tecnología de
+biorremediación permite degradar de manera natural contaminantes químicos y orgánicos, así como
+remover metales pesados. Gracias a su diseño modular, el usuario solo debe reemplazar los
+componentes internos cuando sea necesario, lo que reduce el costo a largo plazo y minimiza el
+desperdicio de plástico. Con EcoBioFilter, los hogares obtienen agua de alta calidad, segura y
+económica, apoyando un modelo de consumo sostenible.
+Descripción de los supuestos
+Supuesto 1: Percepción del problema
+Los hogares en zonas urbanas de Colombia perciben que el agua de grifo que consumen tiene
+contaminantes (sedimentos, metales, malos olores) que afectan su salud y calidad de vida.
+¿Por qué es importante? Si el cliente no percibe el problema o no considera que el agua de su hogar
+es de mala calidad, no habrá motivación para adquirir el EcoBioFilter. Este supuesto sustenta la
+demanda latente del producto.
+Supuesto 2: Disposición de pago y propuesta de valor
+Los consumidores estarían dispuestos a pagar por un sistema de filtración doméstico de costo
+moderado si este es más eficiente que los filtros convencionales y no requiere cambiar todo el equipo,
+solo sus componentes internos.
+¿Por qué es importante? El modelo de negocio depende de que el cliente vea valor diferencial en el
+diseño modular y en la biorremediación. Si el cliente no percibe ventaja frente a filtros convencionales
+más baratos, la propuesta de valor no está bien comunicada o posicionada.
+N° Supuesto Categoría Riesgo
+1 Los hogares en zonas urbanas y periurbanas
+de Colombia perciben que el agua de grifo
+que consumen tiene contaminantes
+(sedimentos, metales, malos olores) que
+afectan su salud y calidad de vida.
+Percepción del problema ALTO
+2 Los consumidores estarían dispuestos a
+pagar por un sistema de filtración doméstico
+de bajo costo si este es más eficiente que los
+filtros convencionales y no requiere cambiar
+todo el equipo.
+Disposición de pago/
+propuesta de valor
+ALTO
+3 Las personas prefieren soluciones de
+purificación de agua naturales y ecológicas
+por encima de soluciones químicas, si el
+precio y la efectividad son comparables.
+Preferencias del mercado MEDIO
+4 Los hogares que actualmente compran agua
+embotellada lo hacen principalmente por
+desconfianza en la calidad del agua de grifo,
+y estarían dispuestos a dejar de comprarla si
+tuvieran acceso a un filtro confiable y
+económico.
+Hábitos de consumo /
+comportamiento
+MEDIO
+5 Una parte significativa de los hogares
+objetivo rechazaría o desconfiaría del
+EcoBioFilter al saber que el sistema utiliza
+microorganismos vivos para purificar el
+agua, por temor a que estos sean dañinos
+para la salud o contaminen el agua en lugar
+de limpiarla.
+Percepción del riesgo /
+barrera de adopción
+ALTO
+Supuesto 3: Preferencias del mercado (factor ecológico)
+Las personas prefieren soluciones de purificación de agua naturales y ecológicas por encima de
+soluciones químicas, si el precio y la efectividad son comparables.
+¿Por qué es importante? El componente diferenciador del EcoBioFilter es el uso de
+microorganismos vivos en lugar de químicos. Si el cliente no valora ni confía en la biotecnología
+como mecanismo de purificación, este diferenciador se convierte en una barrera de adopción en lugar
+de una ventaja competitiva.
+Supuesto 4: Hábitos de consumo y comportamiento
+Los hogares que actualmente compran agua embotellada lo hacen principalmente por desconfianza en
+la calidad del agua de grifo, y estarían dispuestos a dejar de comprarla si tuvieran acceso a un filtro
+confiable y económico.
+¿Por qué es importante? El gasto en agua embotellada representa un costo evitable que EcoBioFilter
+puede reemplazar. Si la motivación de compra de agua embotellada obedece a factores distintos a la
+desconfianza (como el gusto o la costumbre), el ahorro económico como argumento de venta perdería
+relevancia.
+Supuesto 5: Desconfianza hacia los microorganismos
+Una parte significativa de los hogares objetivo rechazaría o desconfiaría del EcoBioFilter al saber que
+el sistema utiliza microorganismos vivos para purificar el agua, por temor a que estos sean dañinos
+para la salud o contaminen el agua en lugar de limpiarla.
+¿Por qué es importante? El diferenciador central de EcoBioFilter es precisamente su capa biológica.
+Si el cliente asocia "microorganismos en el agua" con enfermedad o contaminación (una asociación
+culturalmente muy arraigada) el principal atributo del producto se convierte en su mayor obstáculo de
+venta. Validar este supuesto permite saber si el equipo necesita invertir en educación del cliente, en
+certificaciones sanitarias visibles, o en reformular cómo comunica la tecnología (por ejemplo,
+enfatizando "bacterias beneficiosas" en analogía con los probióticos, en lugar de hablar de
+"microorganismos inmovilizados").
+4. Objetivo del instrumento de medición.
+Evaluar la percepción, confianza, necesidades y disposición de los hogares urbanos y periurbanos de
+Colombia frente a la calidad del agua de grifo y al uso de sistemas domésticos de filtración ecológicos
+y de bajo costo, con el fin de validar la aceptación potencial del EcoBioFilter como alternativa segura,
+eficiente y sostenible para la purificación de agua.
+5. Encuesta diseñada (instrumento completo).
+Link formulario:
+https://docs.google.com/forms/d/e/1FAIpQLSffTQPYzIVzsb73bRmLt5PqpEeWLCCWbuqc0Nz
+pia6Qdf2Eaw/viewform?usp=sharing&ouid=105001046209916888953
+6. Reflexión final: ¿cómo este instrumento podría ayudar a validar o mejorar su modelo de
+negocio?
+Este instrumento ayuda a validar el modelo de negocio porque sirve para confrontar el optimismo del
+emprendedor con la realidad del mercado. Cuando se alinea el objetivo de nuestro producto (necesidad
+hídrica de calidad en zonas urbanas y periurbanas) con preguntas como la desconfianza en el agua que
+sale del grifo y gastos en agua embotellada, la encuesta respondería si el problema que se quiere
+resolver realmente existe en el mercado. También valida el factor económico al evaluar si los usuarios
+realmente están interesados en ahorrar dinero en la manera que se propone venderlo.
+El instrumento también ayuda a mejorar el modelo de negocio porque funciona como una precaución,
+ya que antes de gastar dinero en la elaboración de filtros, nos indica el estigma que sienten las
+personas hacia microorganismos en el agua. Al incluir en la encuesta este tipo de preguntas sobre el
+uso de microorganismos vivos, nos puede indicar si debemos cambiar la estrategia o no antes de salir
+al mercado, si debemos de cambiar el lenguaje técnico por uno más amigable y que es obligatorio
+incluir sellos de salud y análisis de laboratorio en la propuesta de valor para que el cliente se atreva a
+comprar el producto.

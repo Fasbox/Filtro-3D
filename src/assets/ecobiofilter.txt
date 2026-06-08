@@ -1,0 +1,45 @@
+Objetivo: diseñar y desarrollar una landing page impactante y funcional para el “EcoBiofilter”,  la pagina debe ser una extensión digital de la propuesta de valor “ Nuestro producto ofrece un sistema de purificación de agua doméstico y modular que utiliza una capa biológica compuesta por microorganismos especializados (como Bacillus subtilis, Pseudomonas putida y Saccharomyces cerevisiae) inmovilizados en un soporte poroso. A diferencia de los filtros convencionales que solo retienen partículas, nuestra tecnología de biorremediación permite degradar de manera natural contaminantes químicos y orgánicos, así como remover metales pesados. Gracias a su diseño modular, el usuario solo debe reemplazar los componentes internos cuando sea necesario, lo que reduce el costo a largo plazo y minimiza el desperdicio de plástico. Con EcoBioFilter, los hogares obtienen agua de alta calidad, segura y económica, apoyando un modelo de consumo sostenible”. Y atraer tanto a posibles clientes como a futuros inversores o colaboradores.
+Formato de entrega
+• Archivo HTML: Un archivo index.html principal, junto con todas las carpetas y archivos necesarios (CSS, JavaScript, imágenes, etc.), empaquetados en un archivo .zip o .rar. La página debe ser completamente funcional.
+• Archivo PDF: Una versión en PDF de la landing page para una revisión rápida y uniforme. Se recomienda imprimir la página completa como un PDF de alta calidad.
+Estructura y contenido de la Landing Page 
+La landing page debe ser un scroll (o desplazamiento) coherente que guíe al visitante a través de la propuesta de valor y la información clave del proyecto. Se sugiere el siguiente orden para 
+los elementos:
+A. Sección superior
+⦁	Marca y logo: Clara visibilidad del nombre de la startup y su logo
+ .
+⦁	Título impactante (Headline): Una frase corta y potente que resuma el beneficio principal.
+⦁	Subtítulo/propuesta de valor: Desarrollo conciso del qué hacen y para quién.
+⦁	CTA (Call to Action) Principal: Un botón claro para "Saber Más", "Descargar Informe", "Contactar", etc.
+⦁	Imagen/opcional Video Hero: Visual de alto impacto (render del producto, video explicativo corto, animación del proceso).
+B. Secciones de desarrollo (El cuerpo de la página)
+⦁	Desarrollo de la idea de negocio a propuesta de proyecto empresarial:
+⦁	Explicación de cómo la idea científica se convierte en una solución comercial viable. 
+⦁	Análisis de la Oportunidad, Necesidad o Problema (OPN) con datos y justificación.
+⦁	Definición de mercado objetivo:
+⦁	Descripción detallada del segmento de clientes al que se dirigen.
+⦁	Tamaño del mercado (TAM, SAM, SOM) de manera visual y concisa.
+⦁	Análisis de la competencia:
+⦁	Mencionar a los principales competidores y cómo se diferencian (ventaja competitiva).
+⦁	Puede ser una tabla comparativa o un cuadrante de posicionamiento.
+⦁	Modelo CANVAS completo (versión adaptada a Web):
+⦁	Presentación visual de los 9 bloques del Modelo Canvas, adaptados para ser claros y digeribles en una web. No necesita ser el Canvas completo, sino los puntos clave de cada bloque.
+⦁	Diseño del prototipo conceptual (visual y explicativo):
+⦁	Renders 3D, diagramas de flujo interactivos, esquemas del mecanismo de acción, mockups del producto o servicio. En esta parte de la página puede usar lo presentado en el “prototipo funcional”.
+⦁	Breve descripción de su funcionamiento y beneficios.
+⦁	Estructura organizacional y equipo:
+⦁	Organigrama simple del equipo.
+⦁	Perfiles con fotos, roles y responsabilidades clave del equipo emprendedor (énfasis en la experiencia relevante).
+⦁	Estructura de costos clave:
+⦁	Visión general de los costos más relevantes (I+D, producción, marketing, etc.) sin entrar en demasiado detalle, pero mostrando conciencia financiera.
+⦁	Entidades de apoyo y convocatorias:
+⦁	Mencionar incubadoras, aceleradoras, fondos concursables o alianzas estratégicas que ya tengan o a las que aspiren. Esto demuestra ambición y red de contactos.
+⦁	Condiciones para el desarrollo exitoso del proyecto:
+⦁	¿Qué necesitan para tener éxito? (Financiación, talento, acceso a laboratorio, aprobación regulatoria).
+⦁	Breve mensaje sobre los próximos pasos críticos.
+⦁	Plan de trabajo a corto plazo (hitos clave):
+⦁	Ejemplo: Roadmap visual con los próximos 6-12 meses, destacando hitos de I+D+i, mercado y financiación.
+⦁	Bibliografía selecta (opcional, pero valorada):
+⦁	Mencionar 2-3 artículos científicos clave, patentes o informes de mercado que sustenten la base científica o de negocio.
+C. Sección footer
+⦁	Información de contacto: Email, redes sociales (LinkedIn, etc.).
