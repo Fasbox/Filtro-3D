@@ -52,7 +52,10 @@ export default function FilterViewer3D({
   }, [setSelectedSpaceId])
 
   return (
-    <div className="relative h-[34rem] overflow-hidden rounded-4xl border border-slate-200/80 bg-white shadow-[0_40px_120px_-60px_rgba(31,77,54,0.35)]">
+    <div
+      className="relative overflow-hidden rounded-4xl border border-slate-200/80 bg-white shadow-[0_40px_120px_-60px_rgba(31,77,54,0.35)]"
+      style={{ minHeight: '34rem' }}
+    >
       <Canvas camera={{ position: [0, 0, 5], fov: 46 }}>
         <hemisphereLight intensity={0.9} skyColor="#E8FBFF" groundColor="#D2E9E5" />
         <ambientLight intensity={0.55} />

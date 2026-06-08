@@ -24,7 +24,7 @@ export default function InteractiveFilterSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_0.9fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <div>
             <FilterViewer3D
               selectedSpaceId={selectedSpaceId}
@@ -47,14 +47,6 @@ export default function InteractiveFilterSection() {
                 showHints={showHints}
                 setShowHints={setShowHints}
               />
-            </div>
-
-            <div className="rounded-4xl border border-[#D8D1C4] bg-[#F1E6D0]/70 p-6 shadow-sm">
-              <p className="text-sm uppercase tracking-[0.3em] text-[#1F4D36]">Adopción segura</p>
-              <h3 className="mt-4 text-2xl font-semibold text-[#1E2A24]">Validación centrada en la confianza y la sostenibilidad.</h3>
-              <p className="mt-3 text-sm leading-7 text-[#42514a]">
-                Este modelo está pensado para hogares urbanos, periurbanos y rurales que desean una solución confiable, modular y económica. El diseño enfatiza la limpieza visual y la inspección profesional.
-              </p>
             </div>
           </div>
         </div>
