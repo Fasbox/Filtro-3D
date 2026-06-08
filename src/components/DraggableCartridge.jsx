@@ -198,31 +198,27 @@ function DraggableCartridge({
   const textureMap = useMemo(() => getLayerMap(space.textureType), [space.textureType])
 
   const handlePointerDown = (e) => {
-    if (!draggable) return
+    if (!draggable || !meshRef.current) return
     e.stopPropagation()
-    const rect = e.target.getBoundingClientRect()
+    const point = e.point
     setDragOffset([
-      e.clientX - rect.left,
-      e.clientY - rect.top,
+      meshRef.current.position.x - point.x,
+      meshRef.current.position.y - point.y,
       0
     ])
     onDragStart(space.id)
   }
 
   const handlePointerMove = (e) => {
-    if (!draggable || !isDragging) return
-    const newPosition = [
-      (e.clientX - dragOffset[0]) / 100 - 2,
-      -(e.clientY - dragOffset[1]) / 100 + 1,
-      position[2]
-    ]
-    if (meshRef.current) {
-      meshRef.current.position.set(...newPosition)
-    }
+    if (!draggable || !isDragging || !meshRef.current) return
+    e.stopPropagation()
+    const point = e.point
+    meshRef.current.position.set(point.x + dragOffset[0], point.y + dragOffset[1], position[2])
   }
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (e) => {
     if (!draggable || !isDragging || !meshRef.current) return
+    e.stopPropagation()
     onDragEnd(space.id, meshRef.current.position)
   }
 
