@@ -12,10 +12,13 @@ export default function HeroSection() {
           <span className="inline-flex rounded-full bg-[#C7EDE4] px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-[#1F4D36]">
             EcoBioFilter • Purificación inteligente
           </span>
-          <h1 className="text-4xl font-semibold tracking-tight text-[#1E2A24] sm:text-5xl lg:text-6xl">
+          <h1
+            className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+            style={{ color: '#051F15', opacity: 1, textShadow: '0 1px 3px rgba(10, 35, 22, 0.08)' }}
+          >
             Explora un filtro de agua modular en 3D para hogares sostenibles.
           </h1>
-          <p className="max-w-xl text-base leading-8 text-[#42514a] sm:text-lg">
+          <p className="max-w-xl text-base leading-8 text-[#32473D] sm:text-lg">
             Visualiza cada cámara, entiende su función y descubre cómo un sistema doméstico modular con biorremediación activa ofrece agua segura, económica y libre de metales pesados.
           </p>
 

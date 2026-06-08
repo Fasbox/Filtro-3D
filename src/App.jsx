@@ -1,7 +1,7 @@
-import Filter3D from './components/Filter3D'
+import LandingPage from './components/LandingPage'
 
 function App() {
-  return <Filter3D />
+  return <LandingPage />
 }
 
 export default App

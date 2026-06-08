@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Html, ContactShadows, Environment } from '@react-three/drei'
+import { OrbitControls, ContactShadows, Html } from '@react-three/drei'
 import { useEffect, useState } from 'react'
 import DraggableCartridge from './DraggableCartridge'
 import { filterSpaces } from './filterData'
@@ -53,46 +53,53 @@ export default function FilterViewer3D({
 
   return (
     <div
-      className="relative overflow-hidden rounded-4xl border border-slate-200/80 bg-white shadow-[0_40px_120px_-60px_rgba(31,77,54,0.35)]"
-      style={{ minHeight: '34rem' }}
+      className="relative overflow-hidden rounded-[40px] bg-[#F5F8F3] shadow-[0_48px_120px_-64px_rgba(31,77,54,0.2)] h-[42rem] md:h-[48rem] xl:h-[56rem]"
     >
-      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 5.2], fov: 44 }}>
-        <color attach="background" args={['#f7faf6']} />
-        <hemisphereLight intensity={0.85} skyColor="#eaf8ff" groundColor="#dce9d5" />
-        <ambientLight intensity={0.45} />
-        <spotLight position={[5, 6, 5]} angle={0.35} intensity={1.3} penumbra={0.4} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
-        <directionalLight position={[-4, 6, -2]} intensity={0.7} />
-        <Environment preset="forest" background={false} />
+      <div className="pointer-events-none absolute -top-10 left-8 h-44 w-44 rounded-full bg-[#C7EDE4]/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-10 right-10 h-48 w-48 rounded-full bg-[#F1E6D0]/40 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/80 to-transparent" />
+      <Canvas
+        className="h-full w-full"
+        style={{ width: '100%', height: '100%', display: 'block' }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, 0.5, 1.7], fov: 62 }}
+      >
+        <hemisphereLight intensity={0.9} skyColor="#E8FBFF" groundColor="#D2E9E5" />
+        <directionalLight position={[1.8, 4, 3]} intensity={1.1} />
+        <directionalLight position={[-1.5, 2.5, -2]} intensity={0.7} />
+        <ambientLight intensity={0.7} />
+        <pointLight position={[4, 6, 4]} intensity={1.1} />
+        <pointLight position={[-4, -4, 3]} intensity={0.7} />
+        <directionalLight position={[0, 10, 5]} intensity={0.9} />
 
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.71, 0]} receiveShadow>
-          <planeGeometry args={[12, 12]} />
-          <shadowMaterial opacity={0.18} />
+        <mesh position={[0, -1.35, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[22, 22]} />
+          <meshStandardMaterial color="#eef6f0" />
         </mesh>
+        <ContactShadows position={[0, -1.6, 0]} opacity={0.35} blur={2.2} far={2.5} resolution={800} scale={12} />
 
-        <ContactShadows position={[0, -1.7, 0]} opacity={0.35} blur={2.8} far={3} scale={10} />
-
-        <mesh position={[0, 0, 0]} castShadow>
-          <cylinderGeometry args={[1.08, 1.08, 2.84, 48, 1, true]} />
+        <mesh position={[0, 0, 0]}>
+          <cylinderGeometry args={[1.06, 1.06, 2.84, 48, 1, true]} />
           <meshPhysicalMaterial
             color="#8b939d"
-            metalness={0.16}
-            roughness={0.18}
+            metalness={0.18}
+            roughness={0.22}
             transmission={0.72}
-            thickness={0.32}
-            opacity={0.28}
+            thickness={0.24}
+            opacity={0.26}
             transparent
             depthWrite={false}
-            clearcoat={0.9}
-            clearcoatRoughness={0.12}
-            envMapIntensity={1.1}
+            clearcoat={0.55}
+            clearcoatRoughness={0.18}
           />
         </mesh>
 
-        <mesh position={[0, 1.44, 0]} castShadow>
+        <mesh position={[0, 1.44, 0]}>
           <cylinderGeometry args={[1.08, 1.08, 0.16, 48]} />
-          <meshPhysicalMaterial color="#2e3439" metalness={0.92} roughness={0.22} clearcoat={0.85} />
+          <meshPhysicalMaterial color="#2e3439" metalness={0.92} roughness={0.22} clearcoat={0.84} />
         </mesh>
-        <mesh position={[0, -1.44, 0]} castShadow>
+        <mesh position={[0, -1.44, 0]}>
           <cylinderGeometry args={[1.08, 1.08, 0.16, 48]} />
           <meshPhysicalMaterial color="#25292f" metalness={0.92} roughness={0.24} clearcoat={0.82} />
         </mesh>
@@ -160,15 +167,7 @@ export default function FilterViewer3D({
           )
         })}
 
-        <OrbitControls
-          enablePan={!draggingSpaceId}
-          enableZoom={!draggingSpaceId}
-          enableRotate={!draggingSpaceId}
-          autoRotate={!draggingSpaceId}
-          autoRotateSpeed={1.2}
-          minDistance={3}
-          maxDistance={10}
-        />
+        <OrbitControls enablePan enableZoom enableRotate autoRotate={!draggingSpaceId} autoRotateSpeed={1.2} minDistance={3} maxDistance={10} />
       </Canvas>
 
       <div className="absolute inset-x-0 top-4 flex justify-between px-4 text-xs font-semibold text-[#42514a] sm:px-6">
