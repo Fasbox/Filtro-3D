@@ -17,6 +17,7 @@ export default function Footer() {
               <li><a href="#inicio" className="transition hover:text-white">Inicio</a></li>
               <li><a href="#sistema" className="transition hover:text-white">Sistema</a></li>
               <li><a href="#componentes" className="transition hover:text-white">Componentes</a></li>
+              <li><a href="#proyecto" className="transition hover:text-white">Proyecto</a></li>
             </ul>
           </div>
           <div>

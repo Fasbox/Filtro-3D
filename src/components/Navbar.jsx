@@ -4,6 +4,7 @@ const navLinks = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#sistema', label: 'Sistema' },
   { href: '#componentes', label: 'Componentes' },
+  { href: '#proyecto', label: 'Proyecto' },
   { href: '#funcionamiento', label: 'Funcionamiento' },
   { href: '#mantenimiento', label: 'Mantenimiento' }
 ]

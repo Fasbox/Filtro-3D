@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoBioFilter — Agua Viva. Hogar Seguro.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f3d2e;
+    --green-mid: #1a5c4a;
+    --green-bright: #2e7d6b;
+    --green-light: #4caf8f;
+    --aqua: #7ecec4;
+    --aqua-pale: #b2e4de;
+    --cream: #f5f0e8;
+    --sand: #e8dcc8;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(15, 61, 46, 0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--aqua);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--white); }
+  nav ul { display: flex; gap: 2.5rem; list-style: none; }
+  nav ul a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  nav ul a:hover { color: var(--aqua); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--green-deep);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 0 4rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(46,125,107,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(126,206,196,0.15) 0%, transparent 60%);
+  }
+
+  /* Animated water circles */
+  .water-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(126,206,196,0.15);
+    animation: ripple 8s ease-in-out infinite;
+  }
+  .water-circle:nth-child(1) { width: 600px; height: 600px; right: -100px; top: 50%; transform: translateY(-50%); animation-delay: 0s; }
+  .water-circle:nth-child(2) { width: 800px; height: 800px; right: -200px; top: 50%; transform: translateY(-50%); animation-delay: 1.5s; }
+  .water-circle:nth-child(3) { width: 1000px; height: 1000px; right: -300px; top: 50%; transform: translateY(-50%); animation-delay: 3s; }
+  @keyframes ripple {
+    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.6; transform: translateY(-50%) scale(1.03); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 620px;
+    animation: fadeUp 1s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(126,206,196,0.15);
+    border: 1px solid rgba(126,206,196,0.4);
+    color: var(--aqua);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--aqua);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+  }
+
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--aqua);
+    color: var(--green-deep);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(126,206,196,0.3);
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    border-color: var(--aqua);
+    color: var(--aqua);
+  }
+
+  .hero-visual {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+  }
+  .filter-diagram {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--green-deep);
+    margin-bottom: 1.5rem;
+  }
+  .section-lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── PROBLEMA ── */
+  #problema { background: var(--white); }
+
+  .problema-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .problema-card {
+    background: var(--cream);
+    border-radius: 1.2rem;
+    padding: 2rem;
+    border-left: 4px solid var(--green-light);
+    transition: transform 0.3s;
+  }
+  .problema-card:hover { transform: translateY(-4px); }
+  .problema-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--green-deep);
+    margin-bottom: 0.7rem;
+  }
+  .problema-card p { font-size: 0.95rem; line-height: 1.65; color: var(--text-muted); }
+  .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+  /* ── SEGMENTO ── */
+  #segmento { background: var(--cream); }
+
+  .segmento-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .seg-card {
+    background: var(--white);
+    border-radius: 1.2rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(15,61,46,0.06);
+    transition: all 0.3s;
+  }
+  .seg-card:hover {
+    box-shadow: 0 8px 32px rgba(15,61,46,0.12);
+    transform: translateY(-4px);
+  }
+  .seg-icon {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 1.2rem;
+  }
+  .seg-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--green-deep);
+    margin-bottom: 0.5rem;
+  }
+  .seg-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); }
+
+  .market-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .market-stat {
+    text-align: center;
+    padding: 1.8rem;
+    background: var(--green-deep);
+    border-radius: 1.2rem;
+    color: var(--white);
+  }
+  .market-stat .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--aqua);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .market-stat .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .market-stat .stat-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+  /* ── PROPUESTA DE VALOR ── */
+  #propuesta { background: var(--green-deep); }
+  #propuesta .section-title { color: var(--white); }
+  #propuesta .section-lead { color: rgba(255,255,255,0.65); }
+
+  .valor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .valor-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(126,206,196,0.2);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    transition: all 0.3s;
+  }
+  .valor-item:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--aqua);
+  }
+  .valor-item h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--aqua);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .valor-item p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.65; }
+
+  /* ── MICROORGANISMOS ── */
+  #tecnologia { background: var(--white); }
+
+  .micro-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .micro-card {
+    border: 2px solid var(--sand);
+    border-radius: 1.2rem;
+    padding: 2rem 1.5rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .micro-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-bright), var(--aqua));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .micro-card:hover::before { transform: scaleX(1); }
+  .micro-card:hover { border-color: var(--aqua-pale); }
+  .micro-name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--green-deep);
+    margin-bottom: 0.5rem;
+  }
+  .micro-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--green-bright);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .micro-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); }
+
+  /* ── SUPUESTOS ── */
+  #supuestos { background: var(--cream); }
+
+  .supuestos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .supuesto-item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: start;
+    gap: 1.5rem;
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 1px 12px rgba(15,61,46,0.05);
+    transition: all 0.3s;
+  }
+  .supuesto-item:hover {
+    box-shadow: 0 4px 24px rgba(15,61,46,0.1);
+    transform: translateX(4px);
+  }
+  .sup-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sup-content h4 {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--green-deep);
+    margin-bottom: 0.4rem;
+  }
+  .sup-content p { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); }
+  .riesgo-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    margin-top: 0.2rem;
+  }
+  .riesgo-alto { background: #fdecea; color: #c0392b; }
+  .riesgo-medio { background: #fff8e7; color: #e67e22; }
+
+  /* ── CANVAS ── */
+  #canvas { background: var(--green-deep); padding: 6rem 4rem; }
+  #canvas .section-title { color: var(--white); }
+  #canvas .section-lead { color: rgba(255,255,255,0.65); }
+
+  .canvas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  .canvas-cell {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(126,206,196,0.2);
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+    transition: all 0.3s;
+  }
+  .canvas-cell:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(126,206,196,0.5);
+  }
+  .canvas-cell h5 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--aqua);
+    margin-bottom: 0.6rem;
+  }
+  .canvas-cell p { font-size: 0.82rem; line-height: 1.55; color: rgba(255,255,255,0.65); }
+  .canvas-cell.span2 { grid-column: span 2; }
+  .canvas-cell.highlight {
+    border-color: rgba(126,206,196,0.5);
+    background: rgba(126,206,196,0.08);
+  }
+
+  /* ── COMPETENCIA ── */
+  #competencia { background: var(--white); }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+  .comp-table th {
+    background: var(--green-deep);
+    color: var(--aqua);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    text-align: left;
+  }
+  .comp-table th:first-child { border-radius: 0.6rem 0 0 0; }
+  .comp-table th:last-child { border-radius: 0 0.6rem 0 0; }
+  .comp-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr.ecobio td {
+    background: #f0f7f4;
+    font-weight: 600;
+    color: var(--green-deep);
+  }
+  .check { color: #27ae60; }
+  .cross { color: #e74c3c; }
+
+  /* ── EQUIPO ── */
+  #equipo { background: var(--cream); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .team-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(15,61,46,0.06);
+    transition: all 0.3s;
+  }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(15,61,46,0.1); }
+  .team-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-mid), var(--aqua));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin: 0 auto 1rem;
+  }
+  .team-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--green-deep); margin-bottom: 0.3rem; }
+  .team-card p { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--green-bright); letter-spacing: 0.04em; }
+
+  /* ── COSTOS ── */
+  #costos { background: var(--white); }
+
+  .costo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .costo-item {
+    background: var(--cream);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border-top: 3px solid var(--green-bright);
+  }
+  .costo-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--green-deep); margin-bottom: 0.5rem; }
+  .costo-item p { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+
+  /* ── HITOS ── */
+  #hitos { background: var(--cream); }
+
+  .roadmap {
+    margin-top: 2.5rem;
+    position: relative;
+  }
+  .roadmap-line {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green-mid), var(--aqua));
+  }
+  .roadmap-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hito {
+    text-align: center;
+    padding-top: 0;
+  }
+  .hito-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    border: 3px solid var(--aqua);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--aqua);
+    margin: 0 auto 1rem;
+    font-weight: 500;
+  }
+  .hito h4 { font-size: 0.9rem; font-weight: 600; color: var(--green-deep); margin-bottom: 0.4rem; }
+  .hito p { font-size: 0.82rem; line-height: 1.55; color: var(--text-muted); }
+
+  /* ── INSTRUMENTO ── */
+  #instrumento { background: var(--green-mid); }
+  #instrumento .section-title { color: var(--white); }
+  #instrumento .section-lead { color: rgba(255,255,255,0.7); }
+
+  .supuestos-val {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .sup-val {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    transition: all 0.3s;
+  }
+  .sup-val:hover { background: rgba(255,255,255,0.12); }
+  .sup-val-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--aqua);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .sup-val h4 { color: var(--white); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .sup-val p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
+  .sup-val .riesgo-badge { display: inline-block; margin-bottom: 0.8rem; }
+
+  .encuesta-cta {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .encuesta-cta p { color: rgba(255,255,255,0.65); margin-bottom: 1.2rem; }
+
+  /* ── REFLEXION ── */
+  #reflexion { background: var(--white); }
+  .reflexion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .reflex-card {
+    background: var(--cream);
+    border-radius: 1.2rem;
+    padding: 2rem;
+  }
+  .reflex-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--green-deep);
+    margin-bottom: 1rem;
+  }
+  .reflex-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 3rem 4rem;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--aqua);
+    margin-bottom: 0.5rem;
+  }
+  footer p { font-size: 0.85rem; margin-bottom: 0.3rem; }
+  footer .team { margin-top: 1rem; font-size: 0.8rem; line-height: 1.7; }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Eco<span>Bio</span>Filter</div>
+  <ul>
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#propuesta">Solución</a></li>
+    <li><a href="#supuestos">Validación</a></li>
+    <li><a href="#canvas">Canvas</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#instrumento">Encuesta</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="water-circle"></div>
+    <div class="water-circle"></div>
+    <div class="water-circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">🧬 Biorremediación doméstica</div>
+    <h1 class="hero-title">Agua <em>viva</em>.<br>Hogar seguro.</h1>
+    <p class="hero-sub">EcoBioFilter purifica el agua de tu grifo usando microorganismos especializados, eliminando metales pesados y contaminantes orgánicos sin químicos, sin reemplazar todo el equipo, sin huella plástica.</p>
+    <div class="hero-ctas">
+      <a href="#propuesta" class="btn-primary">Conocer la solución</a>
+      <a href="#instrumento" class="btn-outline">Participar en la encuesta</a>
+    </div>
+  </div>
+
+  <!-- Filter diagram SVG -->
+  <div class="hero-visual">
+    <svg class="filter-diagram" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#7ecec4;stop-opacity:0.9"/>
+          <stop offset="100%" style="stop-color:#2e7d6b;stop-opacity:0.9"/>
+        </linearGradient>
+        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+          <stop offset="100%" style="stop-color:rgba(255,255,255,0.04)"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Filter body -->
+      <rect x="90" y="60" width="120" height="280" rx="20" fill="url(#bodyGrad)" stroke="rgba(126,206,196,0.4)" stroke-width="1.5"/>
+
+      <!-- Layer labels -->
+      <!-- Top cap -->
+      <rect x="80" y="50" width="140" height="20" rx="10" fill="rgba(126,206,196,0.3)" stroke="rgba(126,206,196,0.6)" stroke-width="1"/>
+      <text x="150" y="63" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9" font-family="DM Mono, monospace" letter-spacing="0.05em">ENTRADA DE AGUA</text>
+
+      <!-- Layer 1: Microorganismos -->
+      <rect x="96" y="78" width="108" height="55" rx="6" fill="rgba(76,175,143,0.25)" stroke="rgba(76,175,143,0.5)" stroke-width="1"/>
+      <text x="150" y="99" text-anchor="middle" fill="#7ecec4" font-size="8" font-family="DM Mono, monospace" letter-spacing="0.05em">CAPA BIOLÓGICA</text>
+      <text x="150" y="112" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7" font-family="DM Sans, sans-serif">Bacillus · Pseudomonas</text>
+      <text x="150" y="123" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7" font-family="DM Sans, sans-serif">Saccharomyces</text>
+
+      <!-- Dots decoration -->
+      <circle cx="108" cy="96" r="2.5" fill="rgba(126,206,196,0.6)"/>
+      <circle cx="116" cy="104" r="1.8" fill="rgba(126,206,196,0.4)"/>
+      <circle cx="190" cy="100" r="2" fill="rgba(126,206,196,0.5)"/>
+      <circle cx="182" cy="112" r="1.5" fill="rgba(126,206,196,0.3)"/>
+
+      <!-- Layer 2: Soporte poroso -->
+      <rect x="96" y="140" width="108" height="50" rx="6" fill="rgba(46,125,107,0.2)" stroke="rgba(46,125,107,0.5)" stroke-width="1"/>
+      <text x="150" y="161" text-anchor="middle" fill="#7ecec4" font-size="8" font-family="DM Mono, monospace">SOPORTE POROSO</text>
+      <text x="150" y="174" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7" font-family="DM Sans, sans-serif">Retención de partículas</text>
+
+      <!-- Pore pattern -->
+      <circle cx="120" cy="158" r="3" fill="none" stroke="rgba(126,206,196,0.3)" stroke-width="1"/>
+      <circle cx="133" cy="163" r="2" fill="none" stroke="rgba(126,206,196,0.3)" stroke-width="1"/>
+      <circle cx="170" cy="157" r="3" fill="none" stroke="rgba(126,206,196,0.3)" stroke-width="1"/>
+      <circle cx="182" cy="165" r="2" fill="none" stroke="rgba(126,206,196,0.3)" stroke-width="1"/>
+
+      <!-- Layer 3: Filtro físico -->
+      <rect x="96" y="197" width="108" height="45" rx="6" fill="rgba(15,61,46,0.3)" stroke="rgba(46,125,107,0.4)" stroke-width="1"/>
+      <text x="150" y="217" text-anchor="middle" fill="#7ecec4" font-size="8" font-family="DM Mono, monospace">FILTRO FÍSICO</text>
+      <text x="150" y="230" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7" font-family="DM Sans, sans-serif">Eliminación de sedimentos</text>
+
+      <!-- Layer 4: Salida -->
+      <rect x="96" y="249" width="108" height="45" rx="6" fill="rgba(126,206,196,0.1)" stroke="rgba(126,206,196,0.3)" stroke-width="1"/>
+      <text x="150" y="269" text-anchor="middle" fill="#7ecec4" font-size="8" font-family="DM Mono, monospace">AGUA PURIFICADA</text>
+      <text x="150" y="282" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7" font-family="DM Sans, sans-serif">Libre de metales y orgánicos</text>
+
+      <!-- Bottom spout -->
+      <rect x="125" y="300" width="50" height="18" rx="8" fill="url(#waterGrad)" opacity="0.8"/>
+      <text x="150" y="313" text-anchor="middle" fill="white" font-size="8" font-family="DM Mono, monospace">SALIDA</text>
+
+      <!-- Animated water drops -->
+      <circle cx="150" cy="335" r="3" fill="#7ecec4" opacity="0.8">
+        <animate attributeName="cy" values="330;360;330" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="142" cy="340" r="2" fill="#7ecec4" opacity="0.5">
+        <animate attributeName="cy" values="335;365;335" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="158" cy="338" r="2.5" fill="#7ecec4" opacity="0.6">
+        <animate attributeName="cy" values="333;363;333" dur="2.2s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0;0.7" dur="2.2s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- Arrows between layers -->
+      <line x1="150" y1="135" x2="150" y2="143" stroke="rgba(126,206,196,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="150" y1="192" x2="150" y2="200" stroke="rgba(126,206,196,0.5)" stroke-width="1.5"/>
+      <line x1="150" y1="245" x2="150" y2="252" stroke="rgba(126,206,196,0.5)" stroke-width="1.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="section-inner">
+    <p class="section-label reveal">El problema</p>
+    <h2 class="section-title reveal">El agua que llega a tu hogar<br>puede ser más peligrosa de lo que parece</h2>
+    <p class="section-lead reveal">En Colombia, hogares urbanos, periurbanos y rurales están expuestos a contaminantes invisibles que los filtros convencionales no eliminan. EcoBioFilter nace para resolver esta brecha.</p>
+    <div class="problema-grid">
+      <div class="problema-card reveal">
+        <div class="card-icon">⚗️</div>
+        <h4>Metales pesados en el grifo</h4>
+        <p>El deterioro de redes de distribución libera plomo, cobre y cadmio. Los filtros físicos convencionales no los eliminan; solo los retienen parcialmente.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="card-icon">🏭</div>
+        <h4>Contaminantes orgánicos</h4>
+        <p>Residuos industriales y agrícolas infiltran fuentes hídricas rurales y subterráneas. Las comunidades sin acceso a acueducto son las más vulnerables.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="card-icon">💰</div>
+        <h4>Gasto en agua embotellada</h4>
+        <p>Las familias colombianas gastan entre $50.000 y $150.000 COP/mes en agua embotellada por desconfianza en el grifo. Es un costo evitable y ambientalmente insostenible.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="card-icon">🌊</div>
+        <h4>Huella plástica</h4>
+        <p>El consumo de agua embotellada genera millones de plásticos de un solo uso al año. EcoBioFilter elimina esta dependencia con una solución reutilizable y de bajo costo de mantenimiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENTO -->
+<section id="segmento">
+  <div class="section-inner">
+    <p class="section-label reveal">Mercado objetivo</p>
+    <h2 class="section-title reveal">Tres segmentos, una misma necesidad</h2>
+    <p class="section-lead reveal">EcoBioFilter se adapta a distintos contextos, desde apartamentos urbanos hasta comunidades rurales sin acceso a agua tratada.</p>
+    <div class="segmento-cards">
+      <div class="seg-card reveal">
+        <div class="seg-icon">🏙️</div>
+        <h4>Hogares urbanos</h4>
+        <p>Familias con acueducto que desconfían de la calidad del agua y buscan reducir el gasto en agua embotellada.</p>
+      </div>
+      <div class="seg-card reveal">
+        <div class="seg-icon">🏘️</div>
+        <h4>Zonas periurbanas</h4>
+        <p>Barrios en desarrollo con redes de agua en mal estado y alta exposición a sedimentos y contaminantes.</p>
+      </div>
+      <div class="seg-card reveal">
+        <div class="seg-icon">🌿</div>
+        <h4>Comunidades rurales</h4>
+        <p>Familias dependientes de pozos o fuentes superficiales sin tratamiento, donde la biorremediación ofrece una solución de bajo costo.</p>
+      </div>
+    </div>
+
+    <div class="market-numbers reveal">
+      <div class="market-stat">
+        <div class="stat-label">TAM estimado</div>
+        <div class="stat-num">~14M</div>
+        <div class="stat-desc">hogares en Colombia</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">SAM objetivo</div>
+        <div class="stat-num">~4M</div>
+        <div class="stat-desc">hogares urbanos/periurbanos con desconfianza en el grifo</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">SOM inicial</div>
+        <div class="stat-num">~50K</div>
+        <div class="stat-desc">hogares en fase piloto en Antioquia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPUESTA DE VALOR -->
+<section id="propuesta">
+  <div class="section-inner">
+    <p class="section-label reveal" style="color:var(--aqua-pale)">Propuesta de valor</p>
+    <h2 class="section-title reveal">La biología hace lo que los químicos no pueden</h2>
+    <p class="section-lead reveal">EcoBioFilter va más allá de la filtración física. Usa microorganismos vivos para degradar activamente contaminantes, como lo hace la naturaleza, pero de forma controlada y certificada.</p>
+    <div class="valor-grid">
+      <div class="valor-item reveal">
+        <h4>🦠 Biorremediación activa</h4>
+        <p>Los microorganismos inmovilizados degradan contaminantes orgánicos y metales pesados en lugar de solo retenerlos, garantizando agua genuinamente limpia.</p>
+      </div>
+      <div class="valor-item reveal">
+        <h4>🔧 Diseño modular</h4>
+        <p>Solo se reemplazan los componentes internos cuando es necesario. Sin desechar el equipo completo, reduciendo costos y plástico.</p>
+      </div>
+      <div class="valor-item reveal">
+        <h4>💵 Economía del hogar</h4>
+        <p>Elimina la compra recurrente de agua embotellada. Con una sola inversión moderada, la familia recupera el costo en menos de 6 meses.</p>
+      </div>
+      <div class="valor-item reveal">
+        <h4>🌱 Sostenibilidad real</h4>
+        <p>Sin químicos, sin plásticos de un solo uso. Un modelo de consumo responsable que cuida el agua y el planeta desde el hogar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍA -->
+<section id="tecnologia">
+  <div class="section-inner">
+    <p class="section-label reveal">La ciencia detrás del producto</p>
+    <h2 class="section-title reveal">Tres microorganismos.<br>Una capa biológica poderosa.</h2>
+    <p class="section-lead reveal">EcoBioFilter utiliza un consorcio microbiano probado, inmovilizado en un soporte poroso que garantiza su actividad continua sin representar ningún riesgo para la salud.</p>
+    <div class="micro-cards">
+      <div class="micro-card reveal">
+        <div class="micro-role">Bacteria</div>
+        <div class="micro-name">Bacillus subtilis</div>
+        <p>Bacteria de suelo ampliamente estudiada. Degrada compuestos orgánicos complejos y reduce la concentración de metales pesados mediante biosorción y bioprecipitación.</p>
+      </div>
+      <div class="micro-card reveal">
+        <div class="micro-role">Bacteria</div>
+        <div class="micro-name">Pseudomonas putida</div>
+        <p>Especialista en degradación de contaminantes orgánicos (pesticidas, hidrocarburos, fenoles). Uno de los microorganismos más usados en biorremediación de agua y suelo.</p>
+      </div>
+      <div class="micro-card reveal">
+        <div class="micro-role">Levadura</div>
+        <div class="micro-name">Saccharomyces cerevisiae</div>
+        <p>Levadura segura con alta capacidad de biosorción de metales pesados (plomo, cadmio, cromo). Su pared celular actúa como trampa altamente eficiente para iones metálicos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPUESTOS -->
+<section id="supuestos">
+  <div class="section-inner">
+    <p class="section-label reveal">Validación</p>
+    <h2 class="section-title reveal">Los 5 supuestos críticos<br>del modelo de negocio</h2>
+    <p class="section-lead reveal">Antes de escalar, identificamos los riesgos reales. Estos son los supuestos que la encuesta busca validar.</p>
+    <div class="supuestos-list">
+      <div class="supuesto-item reveal">
+        <div class="sup-num">1</div>
+        <div class="sup-content">
+          <h4>Percepción del problema</h4>
+          <p>Los hogares urbanos perciben que su agua de grifo tiene contaminantes (sedimentos, metales, olores) que afectan su salud. Sin esta percepción, no hay demanda latente.</p>
+        </div>
+        <span class="riesgo-badge riesgo-alto">ALTO</span>
+      </div>
+      <div class="supuesto-item reveal">
+        <div class="sup-num">2</div>
+        <div class="sup-content">
+          <h4>Disposición de pago</h4>
+          <p>Los consumidores pagarían por un filtro de costo moderado si es más eficiente que los convencionales y permite reemplazar solo sus componentes internos.</p>
+        </div>
+        <span class="riesgo-badge riesgo-alto">ALTO</span>
+      </div>
+      <div class="supuesto-item reveal">
+        <div class="sup-num">3</div>
+        <div class="sup-content">
+          <h4>Preferencias ecológicas</h4>
+          <p>Las personas prefieren soluciones naturales sobre químicas si el precio y la efectividad son comparables. Es la base de la diferenciación de EcoBioFilter.</p>
+        </div>
+        <span class="riesgo-badge riesgo-medio">MEDIO</span>
+      </div>
+      <div class="supuesto-item reveal">
+        <div class="sup-num">4</div>
+        <div class="sup-content">
+          <h4>Hábitos de consumo</h4>
+          <p>Los compradores de agua embotellada lo hacen principalmente por desconfianza, no por gusto o costumbre, y estarían dispuestos a cambiar con un filtro confiable.</p>
+        </div>
+        <span class="riesgo-badge riesgo-medio">MEDIO</span>
+      </div>
+      <div class="supuesto-item reveal">
+        <div class="sup-num">5</div>
+        <div class="sup-content">
+          <h4>Barrera de adopción: microorganismos</h4>
+          <p>Una parte significativa rechazaría el producto al saber que usa microorganismos vivos, por temor cultural. Validar esto determina si se necesita inversión en educación o reformulación del mensaje.</p>
+        </div>
+        <span class="riesgo-badge riesgo-alto">ALTO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANVAS -->
+<section id="canvas">
+  <div class="section-inner">
+    <p class="section-label reveal" style="color:var(--aqua-pale)">Modelo de negocio</p>
+    <h2 class="section-title reveal">Business Model Canvas</h2>
+    <p class="section-lead reveal">Los 9 bloques del modelo de negocio de EcoBioFilter, adaptados para una solución de biotecnología doméstica.</p>
+    <div class="canvas-grid reveal">
+      <div class="canvas-cell">
+        <h5>Socios clave</h5>
+        <p>Universidades (UdeA, UNAL), proveedores de cepas microbianas certificadas, laboratorios de calidad del agua, distribuidores de ferretería y tiendas naturistas.</p>
+      </div>
+      <div class="canvas-cell">
+        <h5>Actividades clave</h5>
+        <p>I+D en biorremediación, producción y ensamble de módulos, control de calidad microbiológico, certificación sanitaria, educación al cliente.</p>
+      </div>
+      <div class="canvas-cell highlight span2">
+        <h5>Propuesta de valor</h5>
+        <p>Purificación de agua doméstica mediante microorganismos vivos. Elimina metales pesados y orgánicos. Diseño modular de bajo costo de mantenimiento. Sostenible y sin huella química.</p>
+      </div>
+      <div class="canvas-cell">
+        <h5>Segmento de clientes</h5>
+        <p>Hogares urbanos, periurbanos y rurales de Colombia. Familias que compran agua embotellada. Comunidades rurales sin acceso a agua tratada.</p>
+      </div>
+      <div class="canvas-cell">
+        <h5>Recursos clave</h5>
+        <p>Know-how microbiológico, cepas certificadas, laboratorio propio, patente del proceso, equipo científico multidisciplinar.</p>
+      </div>
+      <div class="canvas-cell">
+        <h5>Relaciones con clientes</h5>
+        <p>Servicio posventa, suscripción de mantenimiento, comunidad online de usuarios, talleres educativos sobre calidad del agua.</p>
+      </div>
+      <div class="canvas-cell span2">
+        <h5>Canales</h5>
+        <p>Tienda online directa · Ferreterías y tiendas de hogar · Alianzas con EPM/Empresas de servicios públicos · Ferias agroambientales · Distribuidores rurales</p>
+      </div>
+      <div class="canvas-cell">
+        <h5>Estructura de costos</h5>
+        <p>I+D · Producción de módulos · Certificaciones sanitarias · Marketing y educación · Distribución y logística</p>
+      </div>
+      <div class="canvas-cell span2">
+        <h5>Fuentes de ingresos</h5>
+        <p>Venta del equipo base · Suscripción de recambio de módulos (modelo SaaS físico) · Servicio de mantenimiento · Venta a instituciones y cooperativas rurales</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIA -->
+<section id="competencia">
+  <div class="section-inner">
+    <p class="section-label reveal">Análisis competitivo</p>
+    <h2 class="section-title reveal">¿Por qué EcoBioFilter<br>es diferente?</h2>
+    <p class="section-lead reveal">Comparado con las soluciones existentes, EcoBioFilter ofrece una ventaja real en eliminación de metales pesados, sostenibilidad y costo a largo plazo.</p>
+    <table class="comp-table reveal">
+      <thead>
+        <tr>
+          <th>Solución</th>
+          <th>Elimina metales pesados</th>
+          <th>Sin químicos</th>
+          <th>Modular / bajo mantenimiento</th>
+          <th>Impacto ambiental bajo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ecobio">
+          <td>✅ EcoBioFilter</td>
+          <td><span class="check">✔ Sí (biorremediación)</span></td>
+          <td><span class="check">✔ Sí</span></td>
+          <td><span class="check">✔ Sí</span></td>
+          <td><span class="check">✔ Muy bajo</span></td>
+        </tr>
+        <tr>
+          <td>Filtro de carbón activado</td>
+          <td><span class="cross">✗ Parcial</span></td>
+          <td><span class="check">✔ Sí</span></td>
+          <td><span class="cross">✗ No</span></td>
+          <td>Moderado</td>
+        </tr>
+        <tr>
+          <td>Ósmosis inversa</td>
+          <td><span class="check">✔ Sí</span></td>
+          <td><span class="check">✔ Sí</span></td>
+          <td><span class="cross">✗ Alto costo</span></td>
+          <td><span class="cross">✗ Desperdicio de agua</span></td>
+        </tr>
+        <tr>
+          <td>Agua embotellada</td>
+          <td>Variable</td>
+          <td>Variable</td>
+          <td><span class="cross">✗ Costo recurrente alto</span></td>
+          <td><span class="cross">✗ Muy alto (plástico)</span></td>
+        </tr>
+        <tr>
+          <td>Hipoclorito / cloro</td>
+          <td><span class="cross">✗ No</span></td>
+          <td><span class="cross">✗ No</span></td>
+          <td>Bajo costo puntual</td>
+          <td>Moderado</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- INSTRUMENTO / ENCUESTA -->
+<section id="instrumento">
+  <div class="section-inner">
+    <p class="section-label reveal" style="color:var(--aqua-pale)">Instrumento de validación</p>
+    <h2 class="section-title reveal">¿Cómo valida esta encuesta<br>el modelo de negocio?</h2>
+    <p class="section-lead reveal">Cada bloque de preguntas confronta un supuesto crítico. Los resultados determinarán si EcoBioFilter necesita ajustar su estrategia, su mensaje o su propuesta antes de salir al mercado.</p>
+    <div class="supuestos-val">
+      <div class="sup-val reveal">
+        <div class="sup-val-num">01</div>
+        <span class="riesgo-badge riesgo-alto">Riesgo ALTO</span>
+        <h4>¿Perciben el problema?</h4>
+        <p>Si los encuestados no identifican contaminantes en su agua, la demanda latente no existe y el producto necesita reformular su mensaje antes de cualquier inversión comercial.</p>
+      </div>
+      <div class="sup-val reveal">
+        <div class="sup-val-num">02</div>
+        <span class="riesgo-badge riesgo-alto">Riesgo ALTO</span>
+        <h4>¿Están dispuestos a pagar?</h4>
+        <p>Valida si el diseño modular y el precio moderado son percibidos como ventajas diferenciales reales frente a filtros convencionales más baratos.</p>
+      </div>
+      <div class="sup-val reveal">
+        <div class="sup-val-num">03</div>
+        <span class="riesgo-badge riesgo-medio">Riesgo MEDIO</span>
+        <h4>¿Prefieren lo natural?</h4>
+        <p>Determina si la biotecnología como diferenciador suma o resta valor percibido, y si los clientes confían en soluciones ecológicas para algo tan crítico como el agua de consumo.</p>
+      </div>
+      <div class="sup-val reveal">
+        <div class="sup-val-num">04</div>
+        <span class="riesgo-badge riesgo-medio">Riesgo MEDIO</span>
+        <h4>¿Compran por desconfianza?</h4>
+        <p>Si la motivación principal del agua embotellada es el gusto o la costumbre, el argumento del ahorro económico pierde fuerza y se requiere un reenfoque de la propuesta de valor.</p>
+      </div>
+      <div class="sup-val reveal" style="grid-column: span 2;">
+        <div class="sup-val-num">05</div>
+        <span class="riesgo-badge riesgo-alto">Riesgo ALTO</span>
+        <h4>¿Rechazan los microorganismos?</h4>
+        <p>El supuesto más crítico. Si la asociación cultural "microorganismo = enfermedad" es dominante, EcoBioFilter debe invertir en educación del cliente, certificaciones sanitarias visibles y reformular su lenguaje técnico hacia "bacterias beneficiosas" en analogía con los probióticos, en lugar de hablar de "microorganismos inmovilizados".</p>
+      </div>
+    </div>
+    <div class="encuesta-cta reveal">
+      <p>Objetivo del instrumento: evaluar percepción, confianza y disposición de hogares colombianos frente a sistemas de purificación ecológicos y de bajo costo.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSffTQPYzIVzsb73bRmLt5PqpEeWLCCWbuqc0Nzpia6Qdf2Eaw/viewform?usp=sharing" target="_blank" class="btn-primary">Responder la encuesta →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo">
+  <div class="section-inner">
+    <p class="section-label reveal">El equipo</p>
+    <h2 class="section-title reveal">Las personas detrás<br>de EcoBioFilter</h2>
+    <p class="section-lead reveal">Un equipo interdisciplinario con formación científica y visión emprendedora, comprometido con llevar la biorremediación al hogar colombiano.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">JM</div>
+        <h4>Julio Cesar Montoya Pérez</h4>
+        <p>I+D Microbiológico</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">HG</div>
+        <h4>Heidy Valentina Garcia Brand</h4>
+        <p>Diseño de producto</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">KC</div>
+        <h4>Katherin Yulitza Calderón Gómez</h4>
+        <p>Estrategia comercial</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">MJ</div>
+        <h4>Maria José Henao</h4>
+        <p>Validación científica</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">AA</div>
+        <h4>Angie Tatiana Arango Ramos</h4>
+        <p>Comunicación y mercadeo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSTOS -->
+<section id="costos">
+  <div class="section-inner">
+    <p class="section-label reveal">Estructura de costos</p>
+    <h2 class="section-title reveal">Conciencia financiera desde el inicio</h2>
+    <p class="section-lead reveal">Los costos clave que EcoBioFilter debe gestionar para ser viable a corto y largo plazo.</p>
+    <div class="costo-grid">
+      <div class="costo-item reveal">
+        <h4>🔬 Investigación y Desarrollo</h4>
+        <p>Optimización de cepas, pruebas de eficiencia en laboratorio, certificación microbiológica de seguridad.</p>
+      </div>
+      <div class="costo-item reveal">
+        <h4>🏭 Producción de módulos</h4>
+        <p>Materiales del soporte poroso, ensamble del sistema de filtración, empaque y control de calidad por lote.</p>
+      </div>
+      <div class="costo-item reveal">
+        <h4>📋 Certificaciones</h4>
+        <p>Registro ante INVIMA, avales de entidades de salud, análisis de laboratorio para comunicar confianza al consumidor.</p>
+      </div>
+      <div class="costo-item reveal">
+        <h4>📣 Marketing y educación</h4>
+        <p>Campañas de concientización sobre calidad del agua, material educativo sobre biorremediación, talleres comunitarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HITOS -->
+<section id="hitos">
+  <div class="section-inner">
+    <p class="section-label reveal">Plan de trabajo</p>
+    <h2 class="section-title reveal">Hitos a 12 meses</h2>
+    <p class="section-lead reveal">Roadmap de desarrollo, validación y lanzamiento de EcoBioFilter.</p>
+    <div class="roadmap reveal">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-items">
+        <div class="hito">
+          <div class="hito-dot">Q1</div>
+          <h4>I+D y prototipo</h4>
+          <p>Validación de cepas, construcción del primer módulo funcional y pruebas de eficiencia en laboratorio.</p>
+        </div>
+        <div class="hito">
+          <div class="hito-dot">Q2</div>
+          <h4>Validación de mercado</h4>
+          <p>Encuesta masiva, grupos focales, piloto con 20 hogares en el Valle de Aburrá. Ajuste de propuesta de valor.</p>
+        </div>
+        <div class="hito">
+          <div class="hito-dot">Q3</div>
+          <h4>Certificación y producción</h4>
+          <p>Registro sanitario, primera producción de 500 unidades, definición de canales de distribución.</p>
+        </div>
+        <div class="hito">
+          <div class="hito-dot">Q4</div>
+          <h4>Lanzamiento comercial</h4>
+          <p>Venta online y alianzas con distribuidores. Métricas de adopción y plan de suscripción de módulos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLEXIÓN FINAL -->
+<section id="reflexion">
+  <div class="section-inner">
+    <p class="section-label reveal">Reflexión final</p>
+    <h2 class="section-title reveal">¿Cómo este instrumento mejora<br>el modelo de negocio?</h2>
+    <div class="reflexion-grid">
+      <div class="reflex-card reveal">
+        <h4>Validar vs. asumir</h4>
+        <p>El instrumento sirve para confrontar el optimismo del emprendedor con la realidad del mercado. Al alinear el objetivo del producto —acceso a agua de calidad— con preguntas reales a consumidores, la encuesta responde si el problema que se quiere resolver realmente existe y tiene demanda latente.</p>
+      </div>
+      <div class="reflex-card reveal">
+        <h4>Una precaución estratégica</h4>
+        <p>Antes de gastar recursos en fabricar filtros, el instrumento indica el estigma cultural hacia los microorganismos en el agua. Los resultados pueden señalar si es necesario cambiar el lenguaje técnico, incluir certificaciones sanitarias visibles o reformular por completo la estrategia de comunicación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">EcoBioFilter</div>
+  <p>Sistema doméstico de purificación de agua por biorremediación</p>
+  <p>Universidad de Antioquia · Escuela de Microbiología</p>
+  <div class="team">
+    Julio Cesar Montoya Pérez · Heidy Valentina Garcia Brand · Katherin Yulitza Calderón Gómez<br>
+    Maria José Henao · Angie Tatiana Arango Ramos
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

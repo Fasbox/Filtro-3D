@@ -6,6 +6,7 @@ import ComponentsGrid from './ComponentsGrid'
 import MaintenanceSection from './MaintenanceSection'
 import BenefitsSection from './BenefitsSection'
 import Footer from './Footer'
+import ProjectOverviewSection from './ProjectOverviewSection'
 
 export default function LandingPage() {
   return (
@@ -13,6 +14,7 @@ export default function LandingPage() {
       <Navbar />
       <main className="overflow-hidden">
         <HeroSection />
+        <ProjectOverviewSection />
         <InteractiveFilterSection />
         <HowItWorks />
         <ComponentsGrid />
